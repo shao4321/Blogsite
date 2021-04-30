@@ -1,0 +1,50 @@
+.blog-create {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  label {
+    text-decoration: underline;
+    font-size: 1.5rem;
+    margin: 1em auto;
+  }
+  input[type="text"] {
+    width: 20%;
+    border-radius: 5px;
+  }
+  textarea {
+    width: 40%;
+    min-width: 40%;
+    max-width: 40%;
+    height: 10em;
+    min-height: 10em;
+    max-height: 10em;
+    font-family: "Arial", sans-serif;
+    border-radius: 10px;
+  }
+  input,
+  textarea,
+  .btn-form {
+    font-size: 1.125rem;
+    line-height: 1.125rem;
+    padding: 0.5em;
+    border-radius: 1em;
+    outline: none;
+  }
+  textarea {
+    padding: 0.75em;
+  }
+  .btn-form {
+    width: 20%;
+    min-width: 150px;
+    margin: 1em;
+    cursor: pointer;
+    &:hover {
+      color: #fff;
+      background-color: #000;
+    }
+  }
+  .btn-container {
+    text-align: center;
+    width: 50%;
+  }
+}

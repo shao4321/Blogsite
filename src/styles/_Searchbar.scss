@@ -1,0 +1,35 @@
+.text-container {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  margin: 0.5em auto;
+  padding: 0.5em;
+  font-size: 1.125rem;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 275px;
+}
+input[type="text"] {
+  display: inline-block;
+  padding: 0.5em;
+  padding-right: 2em;
+  font-size: 1.125rem;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 200px;
+  outline: none;
+}
+.delete-text {
+  position: absolute;
+  top: 40%;
+  right: 13%;
+  width: 10px;
+  background-color: #fff;
+  border: none;
+  transform: scale(1.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  &:hover {
+    transform: scale(1.5);
+  }
+}

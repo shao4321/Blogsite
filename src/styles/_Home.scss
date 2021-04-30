@@ -1,0 +1,115 @@
+main {
+  margin: 1em;
+  margin-top: 0;
+  header {
+    display: block;
+    padding: 1em;
+    text-align: center;
+    .blog-head {
+      display: block;
+      text-decoration: underline;
+    }
+    .btn-select {
+      display: inline;
+      margin: 0.5em;
+      margin-top: 0;
+      width: 30%;
+      min-width: 100px;
+      background-color: #d6ca20;
+      color: #111;
+      padding: 0.5em;
+      font-size: 1.2rem;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      text-align: center;
+      &:hover,
+      &:focus {
+        background-color: #d6ca2080;
+      }
+    }
+    .btn-delete {
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 0.5em;
+      width: 50%;
+      min-width: 100px;
+      background-color: #b61c36;
+      color: #f2f2f2;
+      padding: 0.5em;
+      font-size: 1.2rem;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      text-align: center;
+      &:hover,
+      &:focus {
+        background-color: #88061c;
+      }
+    }
+  }
+
+  section {
+    user-select: none;
+    .article-container {
+      position: relative;
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.3);
+      }
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      a {
+        text-decoration: none;
+        color: $baseFontColor;
+        article {
+          padding: 1em;
+          div {
+            padding: 0.5em;
+            h3 {
+              margin-left: 0.25em;
+              display: inline-block;
+              font-size: 1.5rem;
+            }
+            p {
+              margin-top: 0.75em;
+              margin-left: 1.5em;
+              font-size: 1.125rem;
+              font-style: italic;
+            }
+            .date {
+              margin-left: 1em;
+              font-size: 1.125rem;
+              font-family: "Times New Roman", Times, serif;
+              color: #fff;
+              span {
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
+      #icons {
+        margin-right: 1em;
+        background-color: rgba(0, 0, 0, 0);
+        i {
+          margin: 1em 1.2em;
+          cursor: pointer;
+          transform: scale(1.5);
+          transition: transform 0.3s ease;
+          &:hover {
+            transform: scale(2);
+          }
+        }
+      }
+    }
+    .selected {
+      background-color: rgba(3, 0, 196, 0.2);
+      transition: all 350ms ease;
+      &:hover {
+        background-color: rgba(33, 30, 224, 0.3);
+      }
+    }
+  }
+}

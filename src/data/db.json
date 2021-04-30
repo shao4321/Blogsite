@@ -1,0 +1,36 @@
+{
+  "blogs": [
+    {
+      "title": "1st post",
+      "content": "This is the first post.",
+      "dateWritten": "17/4/2021, 8:23:32 AM ",
+      "dateEdited": "17/4/2021, 8:23:32 AM ",
+      "id": 1,
+      "bookmarked": false
+    },
+    {
+      "title": "2nd Post",
+      "content": "This is the 2nd post.",
+      "dateWritten": "17/4/2021, 8:33:59 AM ",
+      "dateEdited": "17/4/2021, 8:33:59 AM ",
+      "id": 2,
+      "bookmarked": true
+    },
+    {
+      "title": "3rd post",
+      "content": "This is the 3rd post. edited",
+      "dateWritten": "17/4/2021, 8:34:33 AM ",
+      "dateEdited": "17/4/2021, 8:49:12 AM ",
+      "id": 3,
+      "bookmarked": true
+    },
+    {
+      "title": "4th post",
+      "content": "this is the 4th post. I edited this",
+      "dateWritten": "17/4/2021, 8:42:51 AM ",
+      "dateEdited": "17/4/2021, 8:46:39 AM ",
+      "bookmarked": true,
+      "id": 4
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+// HOME
+
+// Navigation
+.nav-bar-appear {
+  transform: translateY(-100%);
+}
+.nav-bar-appear-active {
+  transform: translateY(0);
+  transition: all $timeout ease;
+}
+
+// Head
+.btn-delete-enter {
+  opacity: 0;
+}
+.btn-delete-enter-active {
+  opacity: 1;
+  transition: all $timeout;
+}
+.btn-delete-exit {
+  opacity: 1;
+}
+.btn-delete-exit-active {
+  opacity: 0;
+  transition: all $timeout;
+}
+
+.dropdown-content-enter,
+.dropdown-content-appear {
+  top: $menu-starting-top;
+  right: $menu-starting-right;
+  max-height: $toggler-height;
+  color: $fade-from-color;
+  transform: scale(0.9);
+}
+
+.dropdown-content-enter-active,
+.dropdown-content-appear-active {
+  top: $menu-ending-top;
+  right: $menu-ending-right;
+  width: $menu-width;
+  max-height: $menu-max-height;
+  color: $fade-to-color;
+  transform: scale(1);
+  transition: all calc(#{$timeout} - 100ms) ease;
+}
+
+.dropdown-content-exit {
+  top: $menu-ending-top;
+  right: $menu-ending-right;
+  width: $menu-width;
+  max-height: $menu-max-height;
+  color: $fade-to-color;
+  transform: scale(1);
+}
+
+.dropdown-content-exit-active {
+  top: $menu-starting-top;
+  right: $menu-starting-right;
+  max-height: $toggler-height;
+  color: $fade-from-color;
+  transform: scale(0.9);
+  transition: all calc(#{$timeout} - 100ms) ease;
+}
+
+// Body
+.main-bar-appear {
+  transform: translateX(100%);
+}
+.main-bar-appear-active {
+  transform: translateX(0);
+  transition: all $timeout ease;
+}
+
+.section-appear {
+  transform: translateX(-100%);
+}
+.section-appear-active {
+  transform: translateX(0);
+  transition: all $timeout ease;
+}
+
+.article-appear,
+.article-enter {
+  opacity: 0;
+}
+.article-appear-done,
+.article-enter-done {
+  opacity: 1;
+  transition: all calc(#{$timeout} - 100ms) ease-in;
+}
+.article-exit {
+  opacity: 1;
+}
+.article-exit-active {
+  opacity: 0;
+  transition: all calc(#{$timeout} - 100ms) ease-out;
+}
+
+// Forms
+.blog-create-appear {
+  opacity: 0;
+}
+.blog-create-appear-done {
+  opacity: 1;
+  transition: all $timeout ease-in;
+}
