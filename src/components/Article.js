@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import ArticleContent from "./ArticleContent";
+import ToggleIcon from "./ToggleIcon";
 
 const Article = ({
   props,
@@ -17,26 +19,19 @@ const Article = ({
         onClick={(e) => handleSelectedBlog(e, id)}
       >
         <Link to={`/blogs/${id}`}>
-          <article>
-            <div className="contents">
-              <h3>{title}</h3>
-              <p className="date">
-                Written On: <span>{dateWritten}</span>
-              </p>
-              <p className="date">
-                Last Edited On: <span>{dateEdited}</span>
-              </p>
-              <p>{content}</p>
-            </div>
-          </article>
+          <ArticleContent
+            title={title}
+            content={content}
+            dateWritten={dateWritten}
+            dateEdited={dateEdited}
+          />
         </Link>
-        <div id="icons">
-          <i
-            className={`fa${bookmarked ? "s" : "r"} fa-bookmark`}
-            onClick={() => toggleBookmark(id, bookmarked)}
-          ></i>
-          <i className="far fa-trash-alt" onClick={() => blogDelete(id)}></i>
-        </div>
+        <ToggleIcon
+          id={id}
+          bookmarked={bookmarked}
+          toggleBookmark={toggleBookmark}
+          blogDelete={blogDelete}
+        />
       </div>
       <hr />
     </>

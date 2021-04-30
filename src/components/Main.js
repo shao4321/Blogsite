@@ -28,8 +28,4 @@ const Main = ({ homePage }) => {
   );
 };
 
-Main.defaultProps = {
-  homePage: false,
-};
-
 export default Main;

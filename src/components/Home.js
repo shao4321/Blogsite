@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Bloglist from "./Bloglist";
 import { CSSTransition } from "react-transition-group";
-import Header from "./Header";
+import HeaderMain from "./HeaderMain";
 import {
   sortAZ,
   sortZA,
@@ -145,7 +145,7 @@ const Home = ({ blogs, setBlogs, fetchProps, head }) => {
               unmountOnExit
               appear
             >
-              <Header
+              <HeaderMain
                 head={head}
                 blogs={blogs}
                 setBlogs={setBlogs}

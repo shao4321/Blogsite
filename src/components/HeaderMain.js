@@ -1,11 +1,10 @@
-import DeleteBlogs from "./DeleteBlogs";
 import Searchbar from "./Searchbar";
 import SortButton from "./SortButton";
 import { CSSTransition } from "react-transition-group";
 import SelectAll from "./SelectAll";
 import UnselectAll from "./UnselectAll";
 
-const Header = ({
+const HeaderMain = ({
   head,
   blogs,
   setBlogs,
@@ -30,7 +29,9 @@ const Header = ({
           unmountOnExit
           appear
         >
-          <DeleteBlogs handleDelete={handleDeleteBlogs} />
+          <button className="btn-delete" onClick={handleDeleteBlogs}>
+            Delete Selected Blogs
+          </button>
         </CSSTransition>
         <SortButton blogs={blogs} setBlogs={setBlogs} />
       </div>
@@ -38,4 +39,4 @@ const Header = ({
   );
 };
 
-export default Header;
+export default HeaderMain;

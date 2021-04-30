@@ -1,4 +1,4 @@
-import Navbar from "./components/Navbar";
+import HeaderNav from "./components/HeaderNav";
 import Create from "./components/Create";
 import BlogDetails from "./components/BlogDetails";
 import Main from "components/Main";
@@ -8,7 +8,7 @@ import "./App.css";
 const App = () => {
   return (
     <Router>
-      <Navbar />
+      <HeaderNav />
       <Switch>
         <Route path="/" exact>
           <Main homePage={true} />
