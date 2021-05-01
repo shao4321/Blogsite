@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Form from "./Form";
+import FormPage from "./FormPage";
 import useFetch from "./functions_hooks/useFetch";
 import { useParams } from "react-router-dom";
 
@@ -17,7 +17,7 @@ const BlogDetails = () => {
       {errorMessage ? (
         <h1 className="error">{errorMessage}</h1>
       ) : (
-        !isPending && <Form blog={blog} updateBlog={setBlog} />
+        !isPending && <FormPage blog={blog} updateBlog={setBlog} />
       )}
     </>
   );

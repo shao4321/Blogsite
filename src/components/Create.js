@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { CSSTransition } from "react-transition-group";
+import FormCreate from "./FormCreate";
 
 const Create = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [isPending, setIsPending] = useState(false);
-
-  const handleChange = (e, setData) => setData(e.target.value);
 
   const keyPressEvent = (e) => {
     // Submit the form when ctrl-enter key is pressed
@@ -43,31 +42,17 @@ const Create = () => {
       unmountOnExit
       appear
     >
-      <form className="blog-create" onSubmit={addCreateBlog}>
-        <label>Blog Title</label>
-        <input
-          type="text"
-          value={title}
-          onChange={(e) => handleChange(e, setTitle)}
-          autoFocus
-        />
-        <label>Blog Content</label>
-        <textarea
-          value={content}
-          onChange={(e) => handleChange(e, setContent)}
-          onKeyUp={keyPressEvent}
-        ></textarea>
-        {isPending ? (
-          <input
-            type="submit"
-            className="btn-form"
-            value="Adding Blog..."
-            disabled
-          />
-        ) : (
-          <input type="submit" className="btn-form" value="Add New Blog" />
-        )}
-      </form>
+      <FormCreate
+        props={{
+          addCreateBlog,
+          title,
+          setTitle,
+          content,
+          setContent,
+          keyPressEvent,
+          isPending,
+        }}
+      />
     </CSSTransition>
   );
 };

@@ -6,7 +6,7 @@
       "dateWritten": "17/4/2021, 8:23:32 AM ",
       "dateEdited": "17/4/2021, 8:23:32 AM ",
       "id": 1,
-      "bookmarked": false
+      "bookmarked": true
     },
     {
       "title": "2nd Post",
@@ -14,7 +14,7 @@
       "dateWritten": "17/4/2021, 8:33:59 AM ",
       "dateEdited": "17/4/2021, 8:33:59 AM ",
       "id": 2,
-      "bookmarked": true
+      "bookmarked": false
     },
     {
       "title": "3rd post",
@@ -22,7 +22,7 @@
       "dateWritten": "17/4/2021, 8:34:33 AM ",
       "dateEdited": "17/4/2021, 8:49:12 AM ",
       "id": 3,
-      "bookmarked": true
+      "bookmarked": false
     },
     {
       "title": "4th post",
@@ -31,6 +31,14 @@
       "dateEdited": "17/4/2021, 8:46:39 AM ",
       "bookmarked": true,
       "id": 4
+    },
+    {
+      "title": "new blog 1",
+      "content": "this is a new blog",
+      "dateWritten": "1/5/2021, 8:26:14 AM ",
+      "dateEdited": "1/5/2021, 8:26:14 AM ",
+      "bookmarked": false,
+      "id": 5
     }
   ]
 }
