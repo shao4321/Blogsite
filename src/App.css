@@ -21,7 +21,7 @@
   z-index: 1;
 }
 
-.dropbtn:hover, .dropbtn:focus {
+.dropbtn:hover, .dropbtn:active {
   background-color: #2980b9;
 }
 
@@ -141,7 +141,7 @@ main header .btn-select {
   text-align: center;
 }
 
-main header .btn-select:hover, main header .btn-select:focus {
+main header .btn-select:hover, main header .btn-select:active {
   background-color: #d6ca2080;
 }
 
@@ -346,6 +346,13 @@ input[type="text"] {
   width: 100%;
   max-width: 200px;
   outline: none;
+  background-color: rgba(255, 255, 255, 0.7);
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+  background-color: #fff;
 }
 
 .delete-text {
@@ -353,11 +360,11 @@ input[type="text"] {
   top: 40%;
   right: 13%;
   width: 10px;
-  background-color: #fff;
   border: none;
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
   cursor: pointer;
+  background-color: transparent;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }

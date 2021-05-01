@@ -18,16 +18,21 @@ input[type="text"] {
   width: 100%;
   max-width: 200px;
   outline: none;
+  background-color: rgba(255, 255, 255, 0.7);
+  transition: background-color 0.3s ease;
+  &:focus {
+    background-color: #fff;
+  }
 }
 .delete-text {
   position: absolute;
   top: 40%;
   right: 13%;
   width: 10px;
-  background-color: #fff;
   border: none;
   transform: scale(1.2);
   cursor: pointer;
+  background-color: transparent;
   transition: all 0.3s ease;
   &:hover {
     transform: scale(1.5);

@@ -24,7 +24,7 @@ main {
       border-radius: 5px;
       text-align: center;
       &:hover,
-      &:focus {
+      &:active {
         background-color: #d6ca2080;
       }
     }
