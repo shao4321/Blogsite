@@ -12,6 +12,7 @@ const HeaderMain = ({
   setSearchInput,
   handleDeleteBlogs,
   selectedBlogs,
+  bookmarkToggled,
 }) => {
   return (
     <header>
@@ -23,7 +24,7 @@ const HeaderMain = ({
       </div>
       <div className="btn-container">
         <CSSTransition
-          in={selectedBlogs.size > 0}
+          in={!bookmarkToggled && selectedBlogs.size > 0}
           timeout={350}
           classNames="btn-delete"
           unmountOnExit

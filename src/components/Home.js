@@ -21,6 +21,7 @@ const Home = ({ blogs, setBlogs, fetchProps, head }) => {
   const [prevSelectedId, setPrevSelectedId] = useState(null);
   const [availableIds, setAvailableIds] = useState([]);
   const [order, setOrder] = useState("");
+  const [bookmarkToggled, setBookmarkToggled] = useState(false);
 
   const handleDelete = (index) => {
     fetch(baseURL + "/" + index, {
@@ -47,6 +48,7 @@ const Home = ({ blogs, setBlogs, fetchProps, head }) => {
   };
 
   const toggleBookmark = (id, bookmark) => {
+    setBookmarkToggled(true);
     const bookmarked = !bookmark;
     fetch(baseURL + "/" + id, {
       method: "PATCH",
@@ -82,6 +84,7 @@ const Home = ({ blogs, setBlogs, fetchProps, head }) => {
             default:
               setBlogs(data);
           }
+          setBookmarkToggled(false);
         });
     });
   };
@@ -153,6 +156,7 @@ const Home = ({ blogs, setBlogs, fetchProps, head }) => {
                 setSearchInput={setSearchInput}
                 handleDeleteBlogs={handleDeleteBlogs}
                 selectedBlogs={selectedBlogs}
+                bookmarkToggled={bookmarkToggled}
               />
             </CSSTransition>
             <hr />

@@ -6,7 +6,7 @@
       "dateWritten": "17/4/2021, 8:23:32 AM ",
       "dateEdited": "17/4/2021, 8:23:32 AM ",
       "id": 1,
-      "bookmarked": true
+      "bookmarked": false
     },
     {
       "title": "2nd Post",
@@ -14,7 +14,7 @@
       "dateWritten": "17/4/2021, 8:33:59 AM ",
       "dateEdited": "17/4/2021, 8:33:59 AM ",
       "id": 2,
-      "bookmarked": false
+      "bookmarked": true
     },
     {
       "title": "3rd post",
