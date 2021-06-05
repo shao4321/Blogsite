@@ -8,7 +8,7 @@ const BlogDetails = ({ baseURL }) => {
   const { id } = useParams();
   const [blog, setBlog] = useState({});
 
-  const url = baseURL + id;
+  const url = baseURL + "/" + id;
   const { isPending, errorMessage } = useFetch(url, setBlog);
 
   return (

@@ -11,7 +11,7 @@ const FormPage = ({ baseURL, blog }) => {
   const [disabled, setDisabled] = useState(true);
   const { id } = useParams();
   const history = useHistory();
-  const url = baseURL + id;
+  const url = baseURL + "/" + id;
 
   const keyPressEvent = (e) => {
     // Submit the form when ctrl-enter key is pressed

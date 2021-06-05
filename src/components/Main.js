@@ -2,9 +2,8 @@ import { useState } from "react";
 import useFetch from "./functions_hooks/useFetch";
 import Home from "./Home";
 
-const Main = ({ homePage }) => {
+const Main = ({ baseURL, homePage }) => {
   const [blogs, setBlogs] = useState([]);
-  const baseURL = "https://shaoblogsite.herokuapp.com/api";
   const fetchProps = useFetch(baseURL, setBlogs);
 
   return (

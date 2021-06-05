@@ -174,7 +174,6 @@ const Home = ({ baseURL, blogs, setBlogs, fetchProps, head }) => {
                 selectedBlogs={selectedBlogs}
                 handleSelectedBlog={handleSelectedBlog}
                 setAvailableIds={setAvailableIds}
-                baseURL={baseURL}
               />
             </CSSTransition>
           </main>

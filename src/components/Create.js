@@ -2,7 +2,7 @@ import { useState } from "react";
 import { CSSTransition } from "react-transition-group";
 import FormCreate from "./FormCreate";
 
-const Create = () => {
+const Create = ({ baseURL }) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [isPending, setIsPending] = useState(false);
@@ -23,7 +23,6 @@ const Create = () => {
     }/${datetime.getFullYear()}, ${datetime.toLocaleTimeString()} `;
     const dateEdited = dateWritten;
     const blog = { title, content, dateWritten, dateEdited, bookmarked: false };
-    const baseURL = "http://localhost:5000/blogs";
 
     fetch(baseURL, {
       method: "POST",
