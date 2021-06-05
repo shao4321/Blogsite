@@ -6,24 +6,16 @@ import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import "./App.css";
 
 const App = () => {
-  const baseURL = "http://localhost:5000/blogs";
-
   return (
     <Router>
       <HeaderNav />
       <Switch>
         <Route path="/" exact>
-          <Main homePage={true} baseURL={baseURL} />
+          <Main homePage={true} />
         </Route>
-        <Route path="/create">
-          <Create baseURL={baseURL} />
-        </Route>
-        <Route path="/bookmark" component={Main}>
-          <Main baseURL={baseURL} />
-        </Route>
-        <Route path="/blogs/:id">
-          <BlogDetails baseURL={baseURL} />
-        </Route>
+        <Route path="/create" component={Create} />
+        <Route path="/bookmark" component={Main} />
+        <Route path="/blogs/:id" component={BlogDetails} />
       </Switch>
     </Router>
   );

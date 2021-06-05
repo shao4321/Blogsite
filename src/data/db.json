@@ -1,5 +1,5 @@
 {
-  "blogs": [
+  "allBlogs": [
     {
       "title": "1st post",
       "content": "This is the first post.",

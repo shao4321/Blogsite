@@ -1,1 +1,1 @@
-A simple blogsite of which data is retrieved from local json servers
+A simple blogsite of which data is retrieved from local web storage
