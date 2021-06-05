@@ -1,5 +1,4 @@
 import { useState, createContext } from "react";
-import { blogs } from "data/db.json";
 import Bloglist from "./Bloglist";
 import { CSSTransition } from "react-transition-group";
 import HeaderMain from "./HeaderMain";
@@ -175,6 +174,7 @@ const Home = ({ baseURL, blogs, setBlogs, fetchProps, head }) => {
                 selectedBlogs={selectedBlogs}
                 handleSelectedBlog={handleSelectedBlog}
                 setAvailableIds={setAvailableIds}
+                baseURL={baseURL}
               />
             </CSSTransition>
           </main>

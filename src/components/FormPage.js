@@ -3,7 +3,7 @@ import { useParams, useHistory } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 import Form from "./Form";
 
-const FormPage = ({ blog }) => {
+const FormPage = ({ baseURL, blog }) => {
   const [title, setTitle] = useState(blog.title);
   const [content, setContent] = useState(blog.content);
   const [prevTitle, setPrevTitle] = useState(blog.title);
@@ -11,7 +11,7 @@ const FormPage = ({ blog }) => {
   const [disabled, setDisabled] = useState(true);
   const { id } = useParams();
   const history = useHistory();
-  const url = `http://localhost:5000/blogs/${id}`;
+  const url = baseURL + id;
 
   const keyPressEvent = (e) => {
     // Submit the form when ctrl-enter key is pressed
