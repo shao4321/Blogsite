@@ -3,13 +3,7 @@ import Navbar from "./Navbar";
 
 const HeaderNav = () => {
   return (
-    <CSSTransition
-      in={true}
-      timeout={350}
-      classNames="nav-bar"
-      unmountOnExit
-      appear
-    >
+    <CSSTransition in={true} timeout={350} classNames="nav-bar" unmountOnExit>
       <Navbar />
     </CSSTransition>
   );
