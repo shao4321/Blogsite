@@ -14,7 +14,7 @@ import {
 export const AllContext = React.createContext();
 
 const Home = ({ blogs, setBlogs, fetchProps, head }) => {
-  const baseURL = "http://localhost:5000/blogs";
+  const baseURL = "https://shaoblogsite.herokuapp.com/api";
   const { isPending, hasError, errorMessage } = fetchProps;
   const [searchInput, setSearchInput] = useState("");
   const [selectedBlogs, setSelectedBlogs] = useState(new Set());

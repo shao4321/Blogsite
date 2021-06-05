@@ -2,7 +2,7 @@
   "name": "reactprojects",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "dependencies": {
     "axios": "^0.21.1",
     "classnames": "^2.3.1",
@@ -30,11 +30,12 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "concurrently \"react-scripts start\" \"npm run json-server\"",
+    "start": "node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "json-server": "json-server --watch src/data/db.json --port 5000"
+    "json-server": "json-server --watch src/data/db.json --port 5000",
+    "dev": "concurrently \"react-scripts start\" \"npm run json-server\""
   },
   "eslintConfig": {
     "extends": [
