@@ -1,25 +1,21 @@
 import { useState } from "react";
-import FormPage from "./FormPage";
-import useFetch from "./functions_hooks/useFetch";
 import { useParams } from "react-router-dom";
+import FormPage from "./FormPage";
 
-const BlogDetails = ({ baseURL }) => {
-  const loadingMsg = "Loading...";
+const BlogDetails = ({ blogs, setBlogs }) => {
   const { id } = useParams();
-  const [blog, setBlog] = useState({});
-
-  const url = baseURL + "/" + id;
-  const { isPending, errorMessage } = useFetch(url, setBlog);
+  const storedBlogs = JSON.parse(localStorage.getItem("blogs"));
+  const [blog, setBlog] = useState(
+    storedBlogs.filter((blog) => blog.id === Number(id))[0]
+  );
+  const props = { storedBlogs, blog, setBlog, id: Number(id), blogs, setBlogs };
 
   return (
     <>
-      {isPending && !errorMessage && <h1 className="load">{loadingMsg}</h1>}
-      {errorMessage ? (
-        <h1 className="error">{errorMessage}</h1>
+      {blog ? (
+        <FormPage props={props} />
       ) : (
-        !isPending && (
-          <FormPage blog={blog} updateBlog={setBlog} baseURL={baseURL} />
-        )
+        <div className="error">404 not found</div>
       )}
     </>
   );

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { CSSTransition } from "react-transition-group";
 import SortButtonContents from "./SortButtonContents";
 
-const SortButton = ({ blogs, setBlogs }) => {
+const SortButton = () => {
   const [showDropdown, setShowDropdown] = useState(false);
 
   const handleDropdownFocus = (e) => {
@@ -38,7 +38,7 @@ const SortButton = ({ blogs, setBlogs }) => {
         unmountOnExit
         appear
       >
-        <SortButtonContents blogs={blogs} setBlogs={setBlogs} />
+        <SortButtonContents />
       </CSSTransition>
     </div>
   );

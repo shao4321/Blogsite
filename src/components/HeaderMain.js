@@ -6,10 +6,6 @@ import UnselectAll from "./UnselectAll";
 
 const HeaderMain = ({
   head,
-  blogs,
-  setBlogs,
-  searchInput,
-  setSearchInput,
   handleDeleteBlogs,
   selectedBlogs,
   bookmarkToggled,
@@ -18,7 +14,7 @@ const HeaderMain = ({
     <header>
       <h1 className="blog-head">{head}</h1>
       <div className="btn-container selectall">
-        <Searchbar searchInput={searchInput} setSearchInput={setSearchInput} />
+        <Searchbar />
         <SelectAll />
         <UnselectAll />
       </div>
@@ -34,7 +30,7 @@ const HeaderMain = ({
             Delete Selected Blogs
           </button>
         </CSSTransition>
-        <SortButton blogs={blogs} setBlogs={setBlogs} />
+        <SortButton />
       </div>
     </header>
   );

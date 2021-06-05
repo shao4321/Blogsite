@@ -11,6 +11,7 @@ const Form = ({ props }) => {
     updateBlogDetails,
     cancelEdit,
   } = props;
+
   return (
     <form className="blog-create">
       <label>Blog Title</label>

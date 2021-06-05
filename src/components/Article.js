@@ -1,15 +1,13 @@
 import { Link } from "react-router-dom";
 import ArticleContent from "./ArticleContent";
 import ToggleIcon from "./ToggleIcon";
+import { useContext } from "react";
+import { AllContext } from "./Home";
 
-const Article = ({
-  props,
-  blogDelete,
-  toggleBookmark,
-  selectedBlogs,
-  handleSelectedBlog,
-}) => {
+const Article = ({ props }) => {
   const { id, title, content, dateWritten, dateEdited, bookmarked } = props;
+  const { selectedBlogs, handleSelectedBlog } = useContext(AllContext);
+
   return (
     <>
       <div
@@ -26,12 +24,7 @@ const Article = ({
             dateEdited={dateEdited}
           />
         </Link>
-        <ToggleIcon
-          id={id}
-          bookmarked={bookmarked}
-          toggleBookmark={toggleBookmark}
-          blogDelete={blogDelete}
-        />
+        <ToggleIcon id={id} bookmarked={bookmarked} />
       </div>
       <hr />
     </>

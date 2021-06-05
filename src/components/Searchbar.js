@@ -1,4 +1,9 @@
-const Searchbar = ({ searchInput, setSearchInput }) => {
+import { useContext } from "react";
+import { AllContext } from "./Home";
+
+const Searchbar = () => {
+  const { searchInput, setSearchInput } = useContext(AllContext);
+
   return (
     <div className="text-container">
       <input

@@ -1,16 +1,8 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, Fragment } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import Article from "./Article";
 
-const Bloglist = ({
-  blogs,
-  blogDelete,
-  toggleBookmark,
-  searchInput,
-  selectedBlogs,
-  handleSelectedBlog,
-  setAvailableIds,
-}) => {
+const Bloglist = ({ blogs, searchInput, setAvailableIds }) => {
   const [displayBlogs, setDisplayBlogs] = useState(blogs);
 
   useEffect(() => {
@@ -23,32 +15,21 @@ const Bloglist = ({
   }, [blogs, searchInput, setAvailableIds]);
 
   return (
-    <section>
-      <TransitionGroup>
-        {displayBlogs.map((props) => {
-          return (
-            <CSSTransition
-              key={props.id}
-              in={displayBlogs.length > 0}
-              timeout={250}
-              classNames="article"
-              unmountOnExit
-              appear
-            >
-              <React.Fragment key={props.id}>
-                <Article
-                  props={props}
-                  blogDelete={blogDelete}
-                  toggleBookmark={toggleBookmark}
-                  selectedBlogs={selectedBlogs}
-                  handleSelectedBlog={handleSelectedBlog}
-                />
-              </React.Fragment>
-            </CSSTransition>
-          );
-        })}
-      </TransitionGroup>
-    </section>
+    <TransitionGroup component="section">
+      {displayBlogs.map((props) => (
+        <CSSTransition
+          key={props.id}
+          timeout={250}
+          classNames="article"
+          unmountOnExit
+          appear
+        >
+          <Fragment key={props.id}>
+            <Article props={props} />
+          </Fragment>
+        </CSSTransition>
+      ))}
+    </TransitionGroup>
   );
 };
 

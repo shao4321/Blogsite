@@ -1,10 +1,6 @@
-import { useState } from "react";
-import { allBlogs } from "data/db.json";
 import Home from "./Home";
 
-const Main = ({ homePage }) => {
-  const [blogs, setBlogs] = useState(allBlogs);
-
+const Main = ({ blogs, setBlogs, homePage }) => {
   return (
     <>
       {homePage ? (

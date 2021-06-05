@@ -22,61 +22,56 @@ const Home = ({ blogs, setBlogs, head }) => {
   const [bookmarkToggled, setBookmarkToggled] = useState(false);
 
   const handleDelete = (index) => {
-    setBlogs((currBlogs) => currBlogs.filter(({ id }) => id !== index));
+    const updatedBlogs = blogs.filter(({ id }) => id !== index);
+    setBlogs(updatedBlogs);
+    localStorage.setItem("blogs", JSON.stringify(updatedBlogs));
     setSelectedBlogs((currSet) => {
       currSet.delete(index);
       return currSet;
     });
   };
 
-  const handleDeleteBlogs = () => {
-    setBlogs((currBlogs) =>
-      currBlogs.filter(({ id }) => !selectedBlogs.has(id))
-    );
+  const handleDeleteSelectedBlogs = () => {
+    const updatedBlogs = blogs.filter(({ id }) => !selectedBlogs.has(id));
+    setBlogs(updatedBlogs);
+    localStorage.setItem("blogs", JSON.stringify(updatedBlogs));
     setSelectedBlogs(new Set());
   };
 
-  // const toggleBookmark = (id, bookmark) => {
-  //   setBookmarkToggled(true);
-  //   const bookmarked = !bookmark;
-  //   fetch(baseURL + "/" + id, {
-  //     method: "PATCH",
-  //     headers: { "Content-Type": "application/json" },
-  //     body: JSON.stringify({ bookmarked }),
-  //   }).then(() => {
-  //     fetch(baseURL)
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         setSelectedBlogs((currSet) => {
-  //           currSet.delete(id);
-  //           return currSet;
-  //         });
-  //         switch (order) {
-  //           case "AZ":
-  //             sortAZ(data, setBlogs);
-  //             break;
-  //           case "ZA":
-  //             sortZA(data, setBlogs);
-  //             break;
-  //           case "wDateON":
-  //             sortWrittenDateON(data, setBlogs);
-  //             break;
-  //           case "wDateNO":
-  //             sortWrittenDateNO(data, setBlogs);
-  //             break;
-  //           case "eDateON":
-  //             sortEditedDateON(data, setBlogs);
-  //             break;
-  //           case "eDateNO":
-  //             sortEditedDateNO(data, setBlogs);
-  //             break;
-  //           default:
-  //             setBlogs(data);
-  //         }
-  //         setBookmarkToggled(false);
-  //       });
-  //   });
-  // };
+  const toggleBookmark = (id, bookmark) => {
+    setBookmarkToggled(true);
+    const updatedBlogs = blogs.map((blog) =>
+      blog.id === id ? { ...blog, bookmarked: !bookmark } : blog
+    );
+    localStorage.setItem("blogs", JSON.stringify(updatedBlogs));
+    setSelectedBlogs((currSet) => {
+      currSet.delete(id);
+      return currSet;
+    });
+    switch (order) {
+      case "AZ":
+        sortAZ(updatedBlogs, setBlogs);
+        break;
+      case "ZA":
+        sortZA(updatedBlogs, setBlogs);
+        break;
+      case "wDateON":
+        sortWrittenDateON(updatedBlogs, setBlogs);
+        break;
+      case "wDateNO":
+        sortWrittenDateNO(updatedBlogs, setBlogs);
+        break;
+      case "eDateON":
+        sortEditedDateON(updatedBlogs, setBlogs);
+        break;
+      case "eDateNO":
+        sortEditedDateNO(updatedBlogs, setBlogs);
+        break;
+      default:
+        setBlogs(updatedBlogs);
+    }
+    setBookmarkToggled(false);
+  };
 
   const handleSelectedBlog = (e, id) => {
     // Selecting multiple blogs
@@ -123,53 +118,52 @@ const Home = ({ blogs, setBlogs, head }) => {
     setPrevSelectedId(id);
   };
 
+  const contextProps = {
+    setOrder,
+    selectedBlogs,
+    setSelectedBlogs,
+    blogs,
+    setBlogs,
+    searchInput,
+    setSearchInput,
+    handleDelete,
+    toggleBookmark,
+    handleSelectedBlog,
+  };
+
   return (
-    <>
-      {/* {hasError && <h1 className="error">{errorMessage}</h1>}
-      {!hasError && isPending && <h1 className="load">Loading...</h1>}
-      {!hasError && !isPending && ( */}
-      <AllContext.Provider value={{ setOrder, setSelectedBlogs, blogs }}>
-        <main>
-          <CSSTransition
-            in={true}
-            timeout={350}
-            classNames="main-bar"
-            unmountOnExit
-            appear
-          >
-            <HeaderMain
-              head={head}
-              blogs={blogs}
-              setBlogs={setBlogs}
-              searchInput={searchInput}
-              setSearchInput={setSearchInput}
-              handleDeleteBlogs={handleDeleteBlogs}
-              selectedBlogs={selectedBlogs}
-              bookmarkToggled={bookmarkToggled}
-            />
-          </CSSTransition>
-          <hr />
-          <CSSTransition
-            in={true}
-            timeout={350}
-            classNames="section"
-            unmountOnExit
-            appear
-          >
-            <Bloglist
-              blogs={blogs}
-              blogDelete={handleDelete}
-              // toggleBookmark={toggleBookmark}
-              searchInput={searchInput}
-              selectedBlogs={selectedBlogs}
-              handleSelectedBlog={handleSelectedBlog}
-              setAvailableIds={setAvailableIds}
-            />
-          </CSSTransition>
-        </main>
-      </AllContext.Provider>
-      {/* // )} */}
-    </>
+    <AllContext.Provider value={contextProps}>
+      <main>
+        <CSSTransition
+          in={true}
+          timeout={350}
+          classNames="main-bar"
+          unmountOnExit
+          appear
+        >
+          <HeaderMain
+            head={head}
+            handleDeleteBlogs={handleDeleteSelectedBlogs}
+            selectedBlogs={selectedBlogs}
+            bookmarkToggled={bookmarkToggled}
+          />
+        </CSSTransition>
+        <hr />
+        <CSSTransition
+          in={true}
+          timeout={350}
+          classNames="section"
+          unmountOnExit
+          appear
+        >
+          <Bloglist
+            blogs={blogs}
+            searchInput={searchInput}
+            setAvailableIds={setAvailableIds}
+          />
+        </CSSTransition>
+      </main>
+    </AllContext.Provider>
   );
 };
 

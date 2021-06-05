@@ -2,7 +2,7 @@ import { useState } from "react";
 import { CSSTransition } from "react-transition-group";
 import FormCreate from "./FormCreate";
 
-const Create = ({ baseURL }) => {
+const Create = ({ blogs, setBlogs }) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [isPending, setIsPending] = useState(false);
@@ -22,15 +22,18 @@ const Create = ({ baseURL }) => {
       datetime.getMonth() + 1
     }/${datetime.getFullYear()}, ${datetime.toLocaleTimeString()} `;
     const dateEdited = dateWritten;
-    const blog = { title, content, dateWritten, dateEdited, bookmarked: false };
-
-    fetch(baseURL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(blog),
-    }).then(() => {
-      setIsPending(false);
-    });
+    const blog = {
+      title,
+      content,
+      dateWritten,
+      dateEdited,
+      bookmarked: false,
+      id: blogs.length + 2,
+    };
+    const updatedBlogs = [...blogs, blog];
+    setBlogs(updatedBlogs);
+    localStorage.setItem("blogs", JSON.stringify(updatedBlogs));
+    setIsPending(false);
   };
 
   return (

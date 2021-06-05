@@ -9,8 +9,8 @@ import {
 import { useContext } from "react";
 import { AllContext } from "./Home";
 
-const SortButtonContents = ({ blogs, setBlogs }) => {
-  const { setOrder } = useContext(AllContext);
+const SortButtonContents = () => {
+  const { setOrder, blogs, setBlogs } = useContext(AllContext);
 
   const handleSortAZ = (blogs, setBlogs) => {
     setOrder("AZ");

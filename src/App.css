@@ -657,10 +657,12 @@ h3 {
 
 .error,
 .load {
+  margin-top: 5em;
   text-align: center;
 }
 
 .error {
   color: #ff6565;
+  font-size: 2rem;
 }
 /*# sourceMappingURL=App.css.map */
