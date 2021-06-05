@@ -4,7 +4,7 @@ import Home from "./Home";
 
 const Main = ({ homePage }) => {
   const [blogs, setBlogs] = useState([]);
-  const baseURL = "http://localhost:5000/blogs";
+  const baseURL = "https://shaoblogsite.herokuapp.com/api";
   const fetchProps = useFetch(baseURL, setBlogs);
 
   return (
@@ -15,6 +15,7 @@ const Main = ({ homePage }) => {
           blogs={blogs}
           setBlogs={setBlogs}
           head="All Blogs"
+          baseURL={baseURL}
         />
       ) : (
         <Home
@@ -22,6 +23,7 @@ const Main = ({ homePage }) => {
           blogs={blogs.filter(({ bookmarked }) => bookmarked)}
           setBlogs={setBlogs}
           head="Bookmarked Blogs"
+          baseURL={baseURL}
         />
       )}
     </>

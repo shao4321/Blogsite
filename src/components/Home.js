@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState, createContext } from "react";
+import { blogs } from "data/db.json";
 import Bloglist from "./Bloglist";
 import { CSSTransition } from "react-transition-group";
 import HeaderMain from "./HeaderMain";
@@ -11,10 +12,9 @@ import {
   sortEditedDateNO,
 } from "./functions_hooks/sort";
 
-export const AllContext = React.createContext();
+export const AllContext = createContext();
 
-const Home = ({ blogs, setBlogs, fetchProps, head }) => {
-  const baseURL = "https://shaoblogsite.herokuapp.com/api";
+const Home = ({ baseURL, blogs, setBlogs, fetchProps, head }) => {
   const { isPending, hasError, errorMessage } = fetchProps;
   const [searchInput, setSearchInput] = useState("");
   const [selectedBlogs, setSelectedBlogs] = useState(new Set());
