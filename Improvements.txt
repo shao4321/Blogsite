@@ -22,5 +22,6 @@ Completed:
 5. Delete by icon and button will not update the displayed blog list
 6. Add a delete text button
 
+- Fix bug on delete selectedblogs button
+
 Incompleted:
-   - Fix bug on delete selectedblogs button

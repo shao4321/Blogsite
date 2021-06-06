@@ -13,7 +13,7 @@ import {
 
 export const AllContext = createContext();
 
-const Home = ({ blogs, setBlogs, head }) => {
+const Home = ({ originalBlogs, blogs, setBlogs, head }) => {
   const [searchInput, setSearchInput] = useState("");
   const [selectedBlogs, setSelectedBlogs] = useState(new Set());
   const [prevSelectedId, setPrevSelectedId] = useState(null);
@@ -23,7 +23,7 @@ const Home = ({ blogs, setBlogs, head }) => {
 
   const handleDelete = (index) => {
     iconToggled = true;
-    const updatedBlogs = blogs.filter(({ id }) => id !== index);
+    const updatedBlogs = originalBlogs.filter(({ id }) => id !== index);
     setBlogs(updatedBlogs);
     localStorage.setItem("blogs", JSON.stringify(updatedBlogs));
     setSelectedBlogs((currSet) => {
@@ -33,7 +33,9 @@ const Home = ({ blogs, setBlogs, head }) => {
   };
 
   const handleDeleteSelectedBlogs = () => {
-    const updatedBlogs = blogs.filter(({ id }) => !selectedBlogs.has(id));
+    const updatedBlogs = originalBlogs.filter(
+      ({ id }) => !selectedBlogs.has(id)
+    );
     setBlogs(updatedBlogs);
     localStorage.setItem("blogs", JSON.stringify(updatedBlogs));
     setSelectedBlogs(new Set());
@@ -41,7 +43,7 @@ const Home = ({ blogs, setBlogs, head }) => {
 
   const toggleBookmark = (id, bookmark) => {
     iconToggled = true;
-    const updatedBlogs = blogs.map((blog) =>
+    const updatedBlogs = originalBlogs.map((blog) =>
       blog.id === id ? { ...blog, bookmarked: !bookmark } : blog
     );
     localStorage.setItem("blogs", JSON.stringify(updatedBlogs));

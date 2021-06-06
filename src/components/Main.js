@@ -4,9 +4,15 @@ const Main = ({ blogs, setBlogs, homePage }) => {
   return (
     <>
       {homePage ? (
-        <Home blogs={blogs} setBlogs={setBlogs} head="All Blogs" />
+        <Home
+          originalBlogs={blogs}
+          blogs={blogs}
+          setBlogs={setBlogs}
+          head="All Blogs"
+        />
       ) : (
         <Home
+          originalBlogs={blogs}
           blogs={blogs.filter(({ bookmarked }) => bookmarked)}
           setBlogs={setBlogs}
           head="Bookmarked Blogs"
