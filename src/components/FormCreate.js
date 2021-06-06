@@ -6,7 +6,8 @@ const FormCreate = ({ props }) => {
     content,
     setContent,
     keyPressEvent,
-    isPending,
+    added,
+    setAdded,
   } = props;
 
   return (
@@ -24,13 +25,10 @@ const FormCreate = ({ props }) => {
         onChange={(e) => setContent(e.target.value)}
         onKeyUp={keyPressEvent}
       ></textarea>
-      {isPending ? (
-        <input
-          type="submit"
-          className="btn-form"
-          value="Adding Blog..."
-          disabled
-        />
+      {added ? (
+        <button className="btn-form" onClick={() => setAdded(0)}>
+          Blog Added. Add one more!
+        </button>
       ) : (
         <input type="submit" className="btn-form" value="Add New Blog" />
       )}

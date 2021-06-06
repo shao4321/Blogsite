@@ -659,10 +659,10 @@ h3 {
 .load {
   margin-top: 5em;
   text-align: center;
+  font-size: 2rem;
 }
 
 .error {
   color: #ff6565;
-  font-size: 2rem;
 }
 /*# sourceMappingURL=App.css.map */

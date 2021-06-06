@@ -19,9 +19,10 @@ const Home = ({ blogs, setBlogs, head }) => {
   const [prevSelectedId, setPrevSelectedId] = useState(null);
   const [availableIds, setAvailableIds] = useState([]);
   const [order, setOrder] = useState("");
-  const [bookmarkToggled, setBookmarkToggled] = useState(false);
+  let iconToggled = false;
 
   const handleDelete = (index) => {
+    iconToggled = true;
     const updatedBlogs = blogs.filter(({ id }) => id !== index);
     setBlogs(updatedBlogs);
     localStorage.setItem("blogs", JSON.stringify(updatedBlogs));
@@ -39,7 +40,7 @@ const Home = ({ blogs, setBlogs, head }) => {
   };
 
   const toggleBookmark = (id, bookmark) => {
-    setBookmarkToggled(true);
+    iconToggled = true;
     const updatedBlogs = blogs.map((blog) =>
       blog.id === id ? { ...blog, bookmarked: !bookmark } : blog
     );
@@ -70,10 +71,13 @@ const Home = ({ blogs, setBlogs, head }) => {
       default:
         setBlogs(updatedBlogs);
     }
-    setBookmarkToggled(false);
   };
 
   const handleSelectedBlog = (e, id) => {
+    if (iconToggled) {
+      iconToggled = false;
+      return;
+    }
     // Selecting multiple blogs
     if (e.shiftKey && prevSelectedId) {
       let inBetweenIds;
@@ -133,36 +137,40 @@ const Home = ({ blogs, setBlogs, head }) => {
 
   return (
     <AllContext.Provider value={contextProps}>
-      <main>
-        <CSSTransition
-          in={true}
-          timeout={350}
-          classNames="main-bar"
-          unmountOnExit
-          appear
-        >
-          <HeaderMain
-            head={head}
-            handleDeleteBlogs={handleDeleteSelectedBlogs}
-            selectedBlogs={selectedBlogs}
-            bookmarkToggled={bookmarkToggled}
-          />
-        </CSSTransition>
-        <hr />
-        <CSSTransition
-          in={true}
-          timeout={350}
-          classNames="section"
-          unmountOnExit
-          appear
-        >
-          <Bloglist
-            blogs={blogs}
-            searchInput={searchInput}
-            setAvailableIds={setAvailableIds}
-          />
-        </CSSTransition>
-      </main>
+      {blogs.length > 0 ? (
+        <main>
+          <CSSTransition
+            in={true}
+            timeout={350}
+            classNames="main-bar"
+            unmountOnExit
+            appear
+          >
+            <HeaderMain
+              head={head}
+              handleDeleteBlogs={handleDeleteSelectedBlogs}
+              selectedBlogs={selectedBlogs}
+              iconToggled={iconToggled}
+            />
+          </CSSTransition>
+          <hr />
+          <CSSTransition
+            in={true}
+            timeout={350}
+            classNames="section"
+            unmountOnExit
+            appear
+          >
+            <Bloglist
+              blogs={blogs}
+              searchInput={searchInput}
+              setAvailableIds={setAvailableIds}
+            />
+          </CSSTransition>
+        </main>
+      ) : (
+        <div className="load">No Blogs To Display</div>
+      )}
     </AllContext.Provider>
   );
 };

@@ -8,7 +8,7 @@ const HeaderMain = ({
   head,
   handleDeleteBlogs,
   selectedBlogs,
-  bookmarkToggled,
+  iconToggled,
 }) => {
   return (
     <header>
@@ -20,7 +20,7 @@ const HeaderMain = ({
       </div>
       <div className="btn-container">
         <CSSTransition
-          in={!bookmarkToggled && selectedBlogs.size > 0}
+          in={!iconToggled && selectedBlogs.size > 0}
           timeout={350}
           classNames="btn-delete"
           unmountOnExit

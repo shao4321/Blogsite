@@ -5,7 +5,7 @@ import FormCreate from "./FormCreate";
 const Create = ({ blogs, setBlogs }) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const [isPending, setIsPending] = useState(false);
+  const [added, setAdded] = useState(0);
 
   const keyPressEvent = (e) => {
     // Submit the form when ctrl-enter key is pressed
@@ -16,7 +16,6 @@ const Create = ({ blogs, setBlogs }) => {
 
   const addCreateBlog = (e) => {
     e.preventDefault();
-    setIsPending(true);
     const datetime = new Date();
     const dateWritten = `${datetime.getDate()}/${
       datetime.getMonth() + 1
@@ -33,7 +32,7 @@ const Create = ({ blogs, setBlogs }) => {
     const updatedBlogs = [...blogs, blog];
     setBlogs(updatedBlogs);
     localStorage.setItem("blogs", JSON.stringify(updatedBlogs));
-    setIsPending(false);
+    setAdded(1);
   };
 
   return (
@@ -52,7 +51,8 @@ const Create = ({ blogs, setBlogs }) => {
           content,
           setContent,
           keyPressEvent,
-          isPending,
+          added,
+          setAdded,
         }}
       />
     </CSSTransition>
