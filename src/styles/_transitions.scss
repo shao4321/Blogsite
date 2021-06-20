@@ -15,14 +15,14 @@
 }
 .btn-delete-enter-active {
   opacity: 1;
-  transition: all $timeout;
+  transition: all $timeout ease;
 }
 .btn-delete-exit {
   opacity: 1;
 }
 .btn-delete-exit-active {
   opacity: 0;
-  transition: all $timeout;
+  transition: all $timeout ease;
 }
 
 .dropdown-content-enter,
