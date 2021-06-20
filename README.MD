@@ -1,47 +1,76 @@
-<h1 align="center">Welcome to Blog Site 👋</h1>
-<p>
-  <a href="https://www.npmjs.com/package/Blog Site" target="_blank">
-    <img alt="Version" src="https://img.shields.io/npm/v/Blog Site.svg">
-  </a>
-  <a href="#" target="_blank">
-    <img alt="License: ISC" src="https://img.shields.io/badge/License-ISC-yellow.svg" />
-  </a>
-</p>
+<h1 align="center" id="top">Welcome to Blog Site 👋</h1>
 
-> Allows users to add new blogs, delete and edit existing blogs, sort the blogs in order.
+![Blogsite Image](https://i.ibb.co/pyJv6ZB/Blogsite.png)
 
-### 🏠 [Homepage]((link))
+### 🏠 [Live Site](https://shaoblogsite.netlify.app/)
 
-### ✨ [Demo]((linkurl))
+---
 
-## Install
+### Table of Contents
 
-```sh
+You're sections headers will be used to reference location of destination.
+
+- [Description](#description)
+- [How To Use](#how-to-use)
+- [Author Info](#author-info)
+
+---
+
+## Description
+
+> A website that allows users to add new blogs, delete and edit existing blogs. Existing blogs can be sorted by name and dates. Moreover, blogs can be bookmarked and viewed on a separate page. A search function is built to allow users to find their created blogs easily by searching the blog names.
+
+> Blogs are loaded and saved in localstorage API currently.
+
+> If given more time, I will like build an user login system and extend the backend stack of this website.
+
+### Technologies
+
+1. SASS
+2. React
+   - React Hooks
+   - React Router DOM
+   - React Transition Group
+
+> Due to the simplicity and ease of styling on the components, I opted for SASS to build this blogsite. As I had not been using SASS alot, this project serves as an opportunity for me to put it into practice.
+
+> After picking and learning my first frontend web framework, I fell in love with React and wanted to build my understanding for all the React concepts and hooks. Performing a month of arduous practice, I built my first project using React and it was a fun project.
+
+[Back To The Top](#top)
+
+---
+
+## How To Use
+
+<br/>
+
+#### Installation
+
+```
 npm install
 ```
 
-## Usage
+#### Usage
 
-```sh
+```
 npm start
 ```
 
-## Run tests
+[Back To The Top](#top)
 
-```sh
-npm run test
-```
+---
 
-## Author
+## Author Info
 
-👤 **shaowee**
+👤 **Lee Shao Wee**
 
-* Website: (linkportfolio)
-* Github: [@shao4321](https://github.com/shao4321)
+- Website: (linkportfolio)
+- Github: [@shao4321](https://github.com/shao4321)
+
+---
 
 ## Show your support
 
 Give a ⭐️ if this project helped you!
 
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+[Back To The Top](#top)
