@@ -20,9 +20,12 @@ You're sections headers will be used to reference location of destination.
 
 > A website that allows users to add new blogs, delete and edit existing blogs. Existing blogs can be sorted by name and dates. Moreover, blogs can be bookmarked and viewed on a separate page. A search function is built to allow users to find their created blogs easily by searching the blog names.
 
-> Blogs are loaded and saved in localstorage API currently.
+> Blogs are loaded and saved in localstorage API.
 
-> If given more time, I will like build an user login system and extend the backend stack of this website.
+> Some ways that I can improve on this applicaton is:
+1. Build an user login and authentication system. 
+2. Create a theme based on the users' taste.
+3. Add more customization to the posts.
 
 ### Technologies
 
