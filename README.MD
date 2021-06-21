@@ -22,7 +22,7 @@ You're sections headers will be used to reference location of destination.
 
 > Blogs are loaded and saved in localstorage API.
 
-> Some ways that I can improve on this applicaton is:
+### Improvements
 1. Build an user login and authentication system. 
 2. Create a theme based on the users' taste.
 3. Add more customization to the posts.
