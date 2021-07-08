@@ -1,6 +1,5 @@
 main {
-  margin: 1em;
-  margin-top: 0;
+  padding-bottom: 1em;
   header {
     display: block;
     padding: 1em;
@@ -62,7 +61,7 @@ main {
       align-items: center;
       a {
         text-decoration: none;
-        color: $baseFontColor;
+        color: inherit;
         article {
           padding: 1em;
           div {
@@ -82,7 +81,6 @@ main {
               margin-left: 1em;
               font-size: 1.125rem;
               font-family: "Times New Roman", Times, serif;
-              color: #fff;
               span {
                 text-decoration: underline;
               }
