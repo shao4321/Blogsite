@@ -5,9 +5,9 @@ import {
   sortWrittenDateNO,
   sortEditedDateON,
   sortEditedDateNO,
-} from "./functions_hooks/sort";
+} from "./sort";
 import { useContext } from "react";
-import { AllContext } from "./Home";
+import { AllContext } from "../main/Home";
 
 const SortButtonContents = () => {
   const { setOrder, blogs, setBlogs } = useContext(AllContext);

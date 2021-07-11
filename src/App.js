@@ -1,22 +1,25 @@
 import { useState, createContext } from "react";
 import { allBlogs } from "data/db.json";
-import HeaderNav from "./components/HeaderNav";
-import Create from "./components/Create";
-import BlogDetails from "./components/BlogDetails";
-import Main from "components/Main";
+import HeaderNav from "./components/navigation";
+import Create from "./components/create";
+import BlogDetails from "./components/details";
+import Main from "components/main";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import "./App.css";
 
-export const AppContext = createContext();
-
-const App = () => {
+const fetchBlogs = () => {
   let storedBlogs = localStorage.getItem("blogs");
   if (!storedBlogs) {
     storedBlogs = JSON.stringify(allBlogs);
     localStorage.setItem("blogs", storedBlogs);
   }
+  return storedBlogs;
+};
 
-  const [blogs, setBlogs] = useState(JSON.parse(storedBlogs));
+export const AppContext = createContext();
+
+const App = () => {
+  const [blogs, setBlogs] = useState(JSON.parse(fetchBlogs()));
 
   const [darkMode, setDarkMode] = useState(false);
   const white = "rgb(253, 239, 239)";

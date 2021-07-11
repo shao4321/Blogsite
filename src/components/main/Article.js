@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import ArticleContent from "./ArticleContent";
-import ToggleIcon from "./ToggleIcon";
+import ToggleIcon from "../controls/ToggleIcon";
 import { useContext } from "react";
 import { AllContext } from "./Home";
 

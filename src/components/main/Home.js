@@ -1,6 +1,5 @@
 import { useState, createContext } from "react";
 import Bloglist from "./Bloglist";
-import { CSSTransition } from "react-transition-group";
 import HeaderMain from "./HeaderMain";
 import {
   sortAZ,
@@ -9,7 +8,8 @@ import {
   sortWrittenDateNO,
   sortEditedDateON,
   sortEditedDateNO,
-} from "./functions_hooks/sort";
+} from "../controls/sort";
+import EmptyPage from "./EmptyPage";
 
 export const AllContext = createContext();
 
@@ -141,37 +141,21 @@ const Home = ({ originalBlogs, blogs, setBlogs, head }) => {
     <AllContext.Provider value={contextProps}>
       {blogs.length > 0 ? (
         <main>
-          <CSSTransition
-            in={true}
-            timeout={350}
-            classNames="main-bar"
-            unmountOnExit
-            appear
-          >
-            <HeaderMain
-              head={head}
-              handleDeleteBlogs={handleDeleteSelectedBlogs}
-              selectedBlogs={selectedBlogs}
-              iconToggled={iconToggled}
-            />
-          </CSSTransition>
+          <HeaderMain
+            head={head}
+            handleDeleteBlogs={handleDeleteSelectedBlogs}
+            selectedBlogs={selectedBlogs}
+            iconToggled={iconToggled}
+          />
           <hr />
-          <CSSTransition
-            in={true}
-            timeout={350}
-            classNames="section"
-            unmountOnExit
-            appear
-          >
-            <Bloglist
-              blogs={blogs}
-              searchInput={searchInput}
-              setAvailableIds={setAvailableIds}
-            />
-          </CSSTransition>
+          <Bloglist
+            blogs={blogs}
+            searchInput={searchInput}
+            setAvailableIds={setAvailableIds}
+          />
         </main>
       ) : (
-        <div className="load">No Blogs To Display</div>
+        <EmptyPage />
       )}
     </AllContext.Provider>
   );

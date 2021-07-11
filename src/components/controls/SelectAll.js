@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { AllContext } from "./Home";
+import { AllContext } from "../main/Home";
 
 const SelectAll = () => {
   const { setSelectedBlogs, blogs } = useContext(AllContext);

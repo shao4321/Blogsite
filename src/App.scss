@@ -10,6 +10,7 @@
 @import "styles/switch";
 @import "styles/mediaquery";
 @import "styles/transitions";
+@import "styles/styledButton";
 
 * {
   margin: 0;
@@ -31,10 +32,9 @@ h3 {
 }
 
 .error,
-.load {
+.homeSubPage {
   margin-top: 5em;
   text-align: center;
-  font-size: 2rem;
 }
 
 .error {

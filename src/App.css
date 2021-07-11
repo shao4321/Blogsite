@@ -702,6 +702,51 @@ input[type="text"]:hover {
   transition: all 350ms ease-in;
 }
 
+.styled-btn {
+  color: #dfdbdb;
+  background-color: #000;
+  margin-top: 3em;
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+  position: relative;
+  cursor: pointer;
+  font-size: 1rem;
+  -webkit-transition: color 300ms ease-in-out;
+  transition: color 300ms ease-in-out;
+  z-index: 1;
+}
+
+.styled-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  background-color: #dfdbdb;
+  border-radius: 5px;
+  -webkit-transition: -webkit-transform 300ms ease-in-out;
+  transition: -webkit-transform 300ms ease-in-out;
+  transition: transform 300ms ease-in-out;
+  transition: transform 300ms ease-in-out, -webkit-transform 300ms ease-in-out;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+}
+
+.styled-btn:hover, .styled-btn:focus {
+  color: #000;
+}
+
+.styled-btn:hover::before, .styled-btn:focus::before {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -722,10 +767,9 @@ h3 {
 }
 
 .error,
-.load {
+.homeSubPage {
   margin-top: 5em;
   text-align: center;
-  font-size: 2rem;
 }
 
 .error {

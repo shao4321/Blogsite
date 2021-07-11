@@ -1,10 +1,10 @@
 import { CSSTransition } from "react-transition-group";
-import Navbar from "./Navbar";
+import NavContents from "./NavContents";
 
 const HeaderNav = () => {
   return (
     <CSSTransition in={true} timeout={350} classNames="nav-bar" unmountOnExit>
-      <Navbar />
+      <NavContents />
     </CSSTransition>
   );
 };

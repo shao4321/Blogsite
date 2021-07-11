@@ -15,21 +15,29 @@ const Bloglist = ({ blogs, searchInput, setAvailableIds }) => {
   }, [blogs, searchInput, setAvailableIds]);
 
   return (
-    <TransitionGroup component="section">
-      {displayBlogs.map((props) => (
-        <CSSTransition
-          key={props.id}
-          timeout={250}
-          classNames="article"
-          unmountOnExit
-          appear
-        >
-          <Fragment key={props.id}>
-            <Article props={props} />
-          </Fragment>
-        </CSSTransition>
-      ))}
-    </TransitionGroup>
+    <CSSTransition
+      in={true}
+      timeout={350}
+      classNames="section"
+      unmountOnExit
+      appear
+    >
+      <TransitionGroup component="section">
+        {displayBlogs.map((props) => (
+          <CSSTransition
+            key={props.id}
+            timeout={250}
+            classNames="article"
+            unmountOnExit
+            appear
+          >
+            <Fragment key={props.id}>
+              <Article props={props} />
+            </Fragment>
+          </CSSTransition>
+        ))}
+      </TransitionGroup>
+    </CSSTransition>
   );
 };
 

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { AllContext } from "./Home";
+import { AllContext } from "../main/Home";
 
 const ToggleIcon = ({ id, bookmarked }) => {
   const { toggleBookmark, handleDelete } = useContext(AllContext);

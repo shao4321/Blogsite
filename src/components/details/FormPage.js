@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { CSSTransition } from "react-transition-group";
+import Swal from "sweetalert2";
 import Form from "./Form";
 
 const FormPage = ({ props }) => {
@@ -22,17 +22,25 @@ const FormPage = ({ props }) => {
   // Prompt user if they want to save before cancelling
   const cancelEdit = () => {
     if (title !== blog.title || content !== blog.content) {
-      const promptResponse = window.confirm(
-        "Blog details had been edited. Do you want to save changes before cancel?"
-      );
-      if (promptResponse) {
-        update();
-        setPrevTitle(title);
-        setPrevContent(content);
-      } else {
-        setTitle(prevTitle);
-        setContent(prevContent);
-      }
+      Swal.fire({
+        title: "Blog details had been edited.",
+        text: "Do you want to save changes before cancel?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, save it!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire("Saved!", "Blog details has been updated.", "success");
+          update();
+          setPrevTitle(title);
+          setPrevContent(content);
+        } else {
+          setTitle(prevTitle);
+          setContent(prevContent);
+        }
+      });
     }
     setDisabled(true);
   };
@@ -66,28 +74,20 @@ const FormPage = ({ props }) => {
   };
 
   return (
-    <CSSTransition
-      in={true}
-      timeout={350}
-      classNames="blog-create"
-      unmountOnExit
-      appear
-    >
-      <Form
-        props={{
-          title,
-          setTitle,
-          content,
-          setContent,
-          disabled,
-          setDisabled,
-          keyPressEvent,
-          handleDelete,
-          updateBlogDetails,
-          cancelEdit,
-        }}
-      />
-    </CSSTransition>
+    <Form
+      props={{
+        title,
+        setTitle,
+        content,
+        setContent,
+        disabled,
+        setDisabled,
+        keyPressEvent,
+        handleDelete,
+        updateBlogDetails,
+        cancelEdit,
+      }}
+    />
   );
 };
 
