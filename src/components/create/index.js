@@ -1,11 +1,13 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
+import Swal from "sweetalert2";
 import FormCreate from "./FormCreate";
 
 const Create = ({ blogs, setBlogs }) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const [added, setAdded] = useState(0);
+  const history = useHistory();
 
   const keyPressEvent = (e) => {
     // Submit the form when ctrl-enter key is pressed
@@ -32,7 +34,22 @@ const Create = ({ blogs, setBlogs }) => {
     const updatedBlogs = [...blogs, blog];
     setBlogs(updatedBlogs);
     localStorage.setItem("blogs", JSON.stringify(updatedBlogs));
-    setAdded(1);
+    Swal.fire({
+      title: "Blog Added!",
+      text: "Do you want to add one more blog?",
+      icon: "success",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setTitle("");
+        setContent("");
+        return;
+      }
+      history.push("/");
+    });
   };
 
   return (
@@ -51,8 +68,6 @@ const Create = ({ blogs, setBlogs }) => {
           content,
           setContent,
           keyPressEvent,
-          added,
-          setAdded,
         }}
       />
     </CSSTransition>

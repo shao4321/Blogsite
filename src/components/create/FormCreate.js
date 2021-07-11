@@ -1,14 +1,6 @@
 const FormCreate = ({ props }) => {
-  const {
-    addCreateBlog,
-    title,
-    setTitle,
-    content,
-    setContent,
-    keyPressEvent,
-    added,
-    setAdded,
-  } = props;
+  const { addCreateBlog, title, setTitle, content, setContent, keyPressEvent } =
+    props;
 
   return (
     <form className="blog-create" onSubmit={addCreateBlog}>
@@ -25,13 +17,7 @@ const FormCreate = ({ props }) => {
         onChange={(e) => setContent(e.target.value)}
         onKeyUp={keyPressEvent}
       ></textarea>
-      {added ? (
-        <button className="btn-form" onClick={() => setAdded(0)}>
-          Blog Added. Add one more!
-        </button>
-      ) : (
-        <input type="submit" className="btn-form" value="Add New Blog" />
-      )}
+      <input type="submit" className="btn-form" value="Add New Blog" />
     </form>
   );
 };
