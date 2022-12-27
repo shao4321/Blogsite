@@ -16,12 +16,20 @@ const fetchBlogs = () => {
   return storedBlogs;
 };
 
+function getCacheMode() {
+  const cacheIsDarkMode = localStorage.getItem("isDarkMode")
+  if (cacheIsDarkMode) {
+    return JSON.parse(cacheIsDarkMode)
+  }
+  return false
+}
+
 export const AppContext = createContext();
 
 const App = () => {
   const [blogs, setBlogs] = useState(JSON.parse(fetchBlogs()));
 
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(getCacheMode());
   const white = "rgb(253, 239, 239)";
   const black = "rgba(0, 0, 0, 0.8)";
   const bgColor = darkMode ? black : white;

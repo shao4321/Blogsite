@@ -12,7 +12,12 @@ const NavLinks = () => {
           id="mode"
           type="checkbox"
           className="switch"
-          onChange={(e) => setDarkMode(e.target.checked)}
+          onChange={(e) => {
+            const isDarkMode =e.target.checked
+            setDarkMode(isDarkMode)
+            localStorage.setItem("isDarkMode", isDarkMode)
+          }}
+          checked={darkMode}
         />
         <label htmlFor="mode">
           <i className={`far fa-${darkMode ? "sun" : "moon"}`}></i>
